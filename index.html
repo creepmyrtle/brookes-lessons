@@ -1780,6 +1780,12 @@ window.addEventListener('popstate', (e) => {
   showPage(page, { skipHistory: true, skipScroll: false });
 });
 
+// Prevent default on nav links so href="#" doesn't trigger hash change → popstate → back to home
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a[href="#"]');
+  if (link) e.preventDefault();
+});
+
 // Restore page from URL hash or history on load
 function initPageFromUrl() {
   const hash = window.location.hash.slice(1);
