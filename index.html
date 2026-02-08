@@ -1750,8 +1750,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 
 <script>
-// Page navigation
-function showPage(page) {
+// Page navigation – uses History API so swipe-back works on mobile
+function showPage(page, options = {}) {
+  const { skipHistory = false, skipScroll = false } = options;
+
   document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
   const target = document.getElementById('page-' + page);
   if (target) target.classList.add('active');
@@ -1762,9 +1764,31 @@ function showPage(page) {
     if (a.dataset.page === page) a.classList.add('active');
   });
 
-  // Scroll to top
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Push to history so swipe-back / back button works (only when explicitly navigating)
+  if (!skipHistory && history.state?.page !== page) {
+    history.pushState({ page }, '', '#' + page);
+  }
+
+  if (!skipScroll) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
+
+// Handle browser back/forward (and mobile swipe-back)
+window.addEventListener('popstate', (e) => {
+  const page = e.state?.page || 'home';
+  showPage(page, { skipHistory: true, skipScroll: false });
+});
+
+// Restore page from URL hash or history on load
+function initPageFromUrl() {
+  const hash = window.location.hash.slice(1);
+  const page = hash && document.getElementById('page-' + hash) ? hash : 'home';
+  // Replace state so we don't add an extra history entry on first load
+  history.replaceState({ page }, '', '#' + (page === 'home' ? '' : page));
+  showPage(page, { skipHistory: true });
+}
+initPageFromUrl();
 
 // Mobile menu
 function toggleMobile() {
