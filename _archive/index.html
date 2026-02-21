@@ -1094,13 +1094,53 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   margin-bottom: 40px;
 }
 
-.listen-embed {
-  background: var(--surface);
-  border: 1px solid var(--border);
+.listen-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.listen-grid .video-card {
+  display: block;
+  position: relative;
+  width: 100%;
   border-radius: var(--radius);
-  padding: 40px;
-  color: var(--text-muted);
-  font-size: 14px;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid var(--border);
+  text-decoration: none;
+}
+
+.listen-grid .video-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.listen-grid .video-card .play-btn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.3);
+  transition: background 0.2s;
+}
+
+.listen-grid .video-card:hover .play-btn {
+  background: rgba(0,0,0,0.5);
+}
+
+.listen-grid .video-card .play-btn svg {
+  width: 68px;
+  height: 48px;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+
+.listen-grid .video-card:hover .play-btn svg {
+  opacity: 1;
 }
 
 /* ═══════════════════════════════════════════
@@ -1569,9 +1609,31 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     <span class="section-label">Listen</span>
     <h1>Hear Brooke Play</h1>
     <p>Check out some of my performances and song covers. Music is meant to be shared!</p>
-    <div class="listen-embed">
-      <p>🎵 Audio/video embeds would go here</p>
-      <p style="margin-top:8px;font-size:13px;">SoundCloud, YouTube, or Spotify embeds from Brooke's current Listen page</p>
+    <div class="listen-grid">
+      <a class="video-card" href="https://youtu.be/0MURxzAH4lQ" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/0MURxzAH4lQ/hqdefault.jpg" alt="Video thumbnail">
+        <span class="play-btn"><svg viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24L27 14v20" fill="#fff"/></svg></span>
+      </a>
+      <a class="video-card" href="https://youtu.be/_YivBtdcE8A" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/_YivBtdcE8A/hqdefault.jpg" alt="Video thumbnail">
+        <span class="play-btn"><svg viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24L27 14v20" fill="#fff"/></svg></span>
+      </a>
+      <a class="video-card" href="https://youtu.be/KMc6Muf0kZY" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/KMc6Muf0kZY/hqdefault.jpg" alt="Video thumbnail">
+        <span class="play-btn"><svg viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24L27 14v20" fill="#fff"/></svg></span>
+      </a>
+      <a class="video-card" href="https://youtu.be/eE4A78ff-b4" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/eE4A78ff-b4/hqdefault.jpg" alt="Video thumbnail">
+        <span class="play-btn"><svg viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24L27 14v20" fill="#fff"/></svg></span>
+      </a>
+      <a class="video-card" href="https://youtu.be/2P_YlmmV0Hk" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/2P_YlmmV0Hk/hqdefault.jpg" alt="Video thumbnail">
+        <span class="play-btn"><svg viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24L27 14v20" fill="#fff"/></svg></span>
+      </a>
+      <a class="video-card" href="https://youtu.be/IZxz1NZhvmQ" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/IZxz1NZhvmQ/hqdefault.jpg" alt="Video thumbnail">
+        <span class="play-btn"><svg viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24L27 14v20" fill="#fff"/></svg></span>
+      </a>
     </div>
   </div>
 </div>

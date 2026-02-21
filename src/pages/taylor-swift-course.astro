@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import JsonLd from '../components/JsonLd.astro';
+import { pageSEO } from '../data/siteConfig';
+
+const courseJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: 'Taylor Swift Guitar Course',
+  description: "Learn to play Taylor Swift songs on guitar. Beginner-friendly private online course covering every era — from Fearless to Midnights.",
+  provider: {
+    '@type': 'MusicSchool',
+    name: "Brooke's Lessons",
+    url: 'https://www.brookeslessons.com',
+  },
+  educationalLevel: 'Beginner',
+  teaches: ['Guitar chords', 'Strumming patterns', 'Singing while playing', 'Capo usage'],
+  availableLanguage: 'English',
+  deliveryMode: 'online',
+  coursePrerequisites: "No prior experience required — just a guitar and a love of Taylor's music",
+};
+---
+
+<Base title={pageSEO.taylorSwift.title} description={pageSEO.taylorSwift.description}>
+  <Fragment slot="head">
+    <JsonLd data={courseJsonLd} />
+  </Fragment>
+
+  <div class="ts-course-page">
+    <div class="section-header" style="text-align:left;">
+      <span class="section-label">Featured Course</span>
+      <h1 class="section-title" style="font-size:clamp(32px,4vw,42px);">Taylor Swift Guitar Course 🎸</h1>
+      <p style="color:var(--text-dim);font-size:17px;margin-top:12px;max-width:600px;">Learn to play your favorite Taylor Swift songs on guitar! This course is designed for Swifties of all skill levels who want to strum along to every era.</p>
+    </div>
+
+    <div style="margin-top:40px;">
+      <div class="instrument-card" style="margin-bottom:20px;">
+        <h2 style="font-family:var(--font-display);font-size:20px;color:var(--text);margin-bottom:12px;">What You'll Learn</h2>
+        <p style="font-size:15px;color:var(--text-body);line-height:1.8;">
+          This course covers Taylor's biggest hits across all eras — from the country beginnings to the indie folk of Folklore and Evermore. You'll learn essential chords, strumming patterns, capo positions, and how to sing while you play. Each song is broken down step-by-step so you can follow along at your own pace.
+        </p>
+      </div>
+
+      <div class="instrument-card" style="margin-bottom:20px;">
+        <h2 style="font-family:var(--font-display);font-size:20px;color:var(--text);margin-bottom:12px;">Who It's For</h2>
+        <p style="font-size:15px;color:var(--text-body);line-height:1.8;">
+          Beginners who know basic chords (G, C, D, Em) or want to learn them. No prior experience needed — just a guitar and a love of Taylor's music. All ages welcome!
+        </p>
+      </div>
+
+      <div class="instrument-card" style="margin-bottom:32px;">
+        <h2 style="font-family:var(--font-display);font-size:20px;color:var(--text);margin-bottom:12px;">How It Works</h2>
+        <p style="font-size:15px;color:var(--text-body);line-height:1.8;">
+          The course is available as part of your regular private lessons. Let me know you're interested when you sign up, and we'll build your lessons around Taylor's catalog! We can also do a focused 4-week deep dive into a specific era.
+        </p>
+      </div>
+
+      <a href="/book" class="btn btn-primary" style="font-size:16px;padding:16px 36px;">Sign Up for the Course &rarr;</a>
+    </div>
+  </div>
+</Base>

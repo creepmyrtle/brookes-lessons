@@ -1,0 +1,18 @@
+---
+import { pricingPlans } from '../data/pricing';
+---
+
+<div class="pricing-grid">
+  {pricingPlans.map(plan => (
+    <div class:list={['pricing-card', { featured: plan.featured }]}>
+      <div class="pricing-name">{plan.name}</div>
+      <div class="pricing-detail">{plan.detail}</div>
+      <div class="pricing-amount">{plan.amount}</div>
+      <div class="pricing-per">{plan.per}</div>
+      <div class="pricing-breakdown">{plan.breakdown}</div>
+      <a href="/book" class:list={['btn', plan.featured ? 'btn-primary' : 'btn-secondary']}>
+        Get Started
+      </a>
+    </div>
+  ))}
+</div>

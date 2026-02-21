@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import RegistrationForm from '../components/RegistrationForm.astro';
+import { pageSEO } from '../data/siteConfig';
+---
+
+<Base title={pageSEO.book.title} description={pageSEO.book.description}>
+  <div class="contact-page">
+    <span class="section-label">Let's Connect</span>
+    <h1>Contact Brooke</h1>
+    <p>Ready to start your musical journey? Fill out the registration form below and I'll be in touch to set up your first free trial lesson!</p>
+    <RegistrationForm variant="contact" />
+  </div>
+</Base>

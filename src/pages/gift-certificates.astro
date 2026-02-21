@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import { pageSEO } from '../data/siteConfig';
+---
+
+<Base title={pageSEO.giftCertificates.title} description={pageSEO.giftCertificates.description}>
+  <div class="gift-page">
+    <span class="section-label">Give the Gift of Music</span>
+    <h1>Gift Certificates</h1>
+    <p>The perfect gift for an aspiring musician! Digital gift certificates for private online lessons.</p>
+
+    <div class="gift-card">
+      <h2>1 Month of Private Lessons</h2>
+      <p>4 weekly online lessons (voice, guitar, or ukulele)</p>
+      <div class="pricing-amount">$130</div>
+      <p style="margin-top:4px;"><strong style="color:var(--coral);">Save $10</strong> off regular pricing</p>
+      <p style="margin-top:16px;">Gift certificates are delivered via email within 48 hours of purchase. Purchase multiple months for even more savings!</p>
+      <a href="#" class="btn btn-primary" style="margin-top:20px;">Purchase via Square &rarr;</a>
+
+      <p class="gift-fine-print">*Gift certificates must be redeemed within 6 months of purchase, cannot be redeemed for cash, and are only eligible for weekly online lessons. New students only.</p>
+    </div>
+
+    <p style="color: var(--text-dim); font-size: 15px;">
+      Have a gift certificate? <a href="/book" style="color: var(--coral); text-decoration: underline;">Book your first lesson here.</a>
+    </p>
+  </div>
+</Base>

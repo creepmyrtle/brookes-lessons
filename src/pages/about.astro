@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import { pageSEO } from '../data/siteConfig';
+---
+
+<Base title={pageSEO.about.title} description={pageSEO.about.description}>
+  <section class="about-hero">
+    <div class="about-photo">
+      <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=500&h=667&fit=crop&crop=faces" alt="Guitar teacher portrait" style="width:100%;height:100%;object-fit:cover;border-radius:20px;" loading="eager" />
+    </div>
+    <div class="about-text">
+      <span class="section-label">About Brooke</span>
+      <h1>Hi, I'm Brooke!</h1>
+      <p>I'm a DFW-based music teacher with a deep love for helping people discover the joy of playing music. I graduated with an Associates in Music and Practical Theology from Christ for the Nations, and I've been teaching guitar, leading worship, and performing for over 18 years.</p>
+      <p>I offer online lessons in guitar, voice, ukulele, and songwriting. What started as teaching small groups at church turned into a passion I now get to do full time — and I love every minute of it.</p>
+      <p>My influences range from The Beatles and Motown to Taylor Swift, Patty Griffin, and Damien Rice. I teach all kinds of students — kids, adults, children with disabilities, and incredibly gifted musicians. Whether you're 7 or 70, I'll meet you where you are.</p>
+
+      <h2 style="font-family:var(--font-display);font-size:22px;font-weight:600;color:var(--text);margin-top:40px;margin-bottom:16px;">My Teaching Philosophy</h2>
+      <p>Most people pick up the guitar so that they can play… what? Scales? Finger exercises? Chord drills? Nope! Most people want to learn how to play <strong>SONGS</strong>.</p>
+      <p>I am all about teaching you songs. While I think music theory, scales, and finger exercises are important, when I teach beginners, I start with helping you learn how to play songs FIRST. Once you have learned how to make chords, switch chords, and strum, then we build upon the knowledge of your musical skills by slowly adding theory.</p>
+      <p>I also determine what your learning style is so that I can teach you most effectively. Everyone learns differently, and I tailor my approach to fit your goals and your pace.</p>
+
+      <div class="about-highlights">
+        <div class="about-stat">
+          <strong>18+</strong>
+          <span>Years Teaching</span>
+        </div>
+        <div class="about-stat">
+          <strong>7+</strong>
+          <span>Years Performing</span>
+        </div>
+        <div class="about-stat">
+          <strong>Ages 7+</strong>
+          <span>All Ages Welcome</span>
+        </div>
+        <div class="about-stat">
+          <strong>4</strong>
+          <span>Instruments Taught</span>
+        </div>
+      </div>
+
+      <div style="margin-top: 40px;">
+        <a href="/book" class="btn btn-primary">Book a Lesson &rarr;</a>
+      </div>
+    </div>
+  </section>
+</Base>

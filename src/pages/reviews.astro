@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import { pageSEO } from '../data/siteConfig';
+import { testimonials } from '../data/testimonials';
+---
+
+<Base title={pageSEO.reviews.title} description={pageSEO.reviews.description}>
+  <div class="reviews-page">
+    <span class="section-label">Student Love</span>
+    <h1>What My Students Say</h1>
+    <p>Read what students and parents have to say about their experience taking lessons with me.</p>
+
+    <div class="testimonials-grid">
+      {testimonials.map(t => (
+        <TestimonialCard
+          stars={t.stars}
+          text={t.text}
+          author={t.author}
+          source={t.source}
+        />
+      ))}
+    </div>
+
+    <div style="text-align: center; margin-top: 48px;">
+      <a href="/book" class="btn btn-primary">Book a Lesson &rarr;</a>
+    </div>
+  </div>
+</Base>

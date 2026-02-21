@@ -1,0 +1,145 @@
+---
+import Base from '../layouts/Base.astro';
+import JsonLd from '../components/JsonLd.astro';
+import Hero from '../components/Hero.astro';
+import PhilosophyStrip from '../components/PhilosophyStrip.astro';
+import InstrumentCard from '../components/InstrumentCard.astro';
+import PricingCards from '../components/PricingCards.astro';
+import TaylorSwiftBanner from '../components/TaylorSwiftBanner.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import RegistrationForm from '../components/RegistrationForm.astro';
+import { pageSEO } from '../data/siteConfig';
+import { testimonials } from '../data/testimonials';
+
+const homeJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': ['MusicSchool', 'LocalBusiness'],
+  name: "Brooke's Lessons",
+  description: "Private online guitar, voice, and ukulele lessons for all ages. Learn to play songs from your very first lesson.",
+  url: 'https://www.brookeslessons.com',
+  telephone: '',
+  email: '',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Dallas',
+    addressRegion: 'TX',
+    addressCountry: 'US',
+  },
+  areaServed: {
+    '@type': 'Country',
+    name: 'United States',
+  },
+  serviceType: ['Guitar Lessons', 'Voice Lessons', 'Ukulele Lessons'],
+  priceRange: '$30-$65 per lesson',
+  founder: {
+    '@type': 'Person',
+    name: 'Brooke',
+    jobTitle: 'Music Teacher',
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Music Lesson Packages',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        name: '4 × 30 Minute Lessons',
+        price: '140.00',
+        priceCurrency: 'USD',
+        description: 'Four 30-minute private online lessons per month',
+      },
+      {
+        '@type': 'Offer',
+        name: '8 × 30 Minute Lessons',
+        price: '240.00',
+        priceCurrency: 'USD',
+        description: 'Eight 30-minute private online lessons per month',
+      },
+      {
+        '@type': 'Offer',
+        name: '4 × 60 Minute Lessons',
+        price: '260.00',
+        priceCurrency: 'USD',
+        description: 'Four 60-minute private online lessons per month',
+      },
+    ],
+  },
+};
+---
+
+<Base title={pageSEO.home.title} description={pageSEO.home.description}>
+  <Fragment slot="head">
+    <JsonLd data={homeJsonLd} />
+  </Fragment>
+
+  <Hero />
+  <PhilosophyStrip />
+
+  <!-- What I Teach -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-label">What I Teach</span>
+      <h2 class="section-title">Find Your Sound</h2>
+      <p class="section-subtitle">Whether you're 7 or 70, I'll meet you where you are and get you making music.</p>
+    </div>
+    <div class="instruments-grid">
+      <InstrumentCard
+        icon="🎸"
+        title="Guitar Lessons"
+        description="Acoustic and electric guitar for beginners through intermediate players. Learn chords, strumming patterns, fingerpicking, and how to play your favorite songs. All ages welcome, kids 7 and up."
+      />
+      <InstrumentCard
+        icon="🎤"
+        title="Voice Lessons"
+        description="Develop your singing voice with proper technique, breath control, and performance confidence. Whether you want to sing along while you play or take the stage, I'll help you find your voice."
+      />
+      <InstrumentCard
+        icon="🪕"
+        title="Ukulele Lessons"
+        description="The ukulele is the perfect starter instrument — easy to hold, fun to play, and you'll be strumming songs within your first lesson. Great for younger students and beginners of all ages."
+      />
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section" style="padding-top: 0;">
+    <div class="section-header">
+      <span class="section-label">Pricing</span>
+      <h2 class="section-title">Simple, Transparent Pricing</h2>
+      <p class="section-subtitle">All lessons are online. Subscription auto-billing available for monthly convenience.</p>
+    </div>
+    <PricingCards />
+  </section>
+
+  <!-- Taylor Swift Banner -->
+  <TaylorSwiftBanner />
+
+  <!-- Testimonials -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-label">Student Love</span>
+      <h2 class="section-title">What My Students Say</h2>
+    </div>
+    <div class="testimonials-grid">
+      {testimonials.map(t => (
+        <TestimonialCard
+          stars={t.stars}
+          text={t.text}
+          author={t.author}
+          source={t.source}
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- Registration Form -->
+  <section class="form-section" id="register">
+    <div class="form-container">
+      <div class="section-header">
+        <span class="section-label">Get Started</span>
+        <h2 class="section-title">Lesson Registration</h2>
+        <p class="section-subtitle">Fill out the form below and I'll get back to you to schedule your first lesson!</p>
+      </div>
+      <RegistrationForm variant="home" />
+    </div>
+  </section>
+</Base>

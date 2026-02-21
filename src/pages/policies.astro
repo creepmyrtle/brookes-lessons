@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+import { pageSEO } from '../data/siteConfig';
+---
+
+<Base title={pageSEO.policies.title} description={pageSEO.policies.description}>
+  <div class="policies-page">
+    <span class="section-label">Studio Policies</span>
+    <h1>Lesson Policies</h1>
+
+    <div class="policy-section">
+      <h2>Scheduling & Billing</h2>
+      <p>All lessons are billed on a monthly basis on the 1st of the month. A subscription is available for those who prefer the convenience of auto-billing and need flexibility with scheduling.</p>
+      <p>Lessons are currently offered online only via video call.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Cancellations</h2>
+      <p>Please provide at least 24 hours notice if you need to cancel or reschedule a lesson. Lessons cancelled with less than 24 hours notice may be forfeited.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Lesson Packages</h2>
+      <p>Four 30-minute lessons: $140/month ($35/lesson)</p>
+      <p>Eight 30-minute lessons: $240/month ($30/lesson)</p>
+      <p>Four 60-minute lessons: $260/month ($65/lesson)</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>What You'll Need</h2>
+      <p>A guitar, ukulele, or just your voice! A quiet space with a reliable internet connection and a device with a camera and microphone. That's it — I'll take care of the rest.</p>
+    </div>
+
+    <div style="margin-top: 40px;">
+      <a href="/book" class="btn btn-primary">Book a Lesson &rarr;</a>
+    </div>
+  </div>
+</Base>

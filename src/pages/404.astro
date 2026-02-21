@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Page Not Found" description="The page you're looking for doesn't exist." noindex={true}>
+  <div class="not-found-page">
+    <div style="font-size: 64px; margin-bottom: 24px;">🎵</div>
+    <h1>Looks like this page hit a wrong note!</h1>
+    <p>The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+    <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+      <a href="/" class="btn btn-primary">Back to Home &rarr;</a>
+      <a href="/book" class="btn btn-secondary">Book a Lesson</a>
+    </div>
+  </div>
+</Base>

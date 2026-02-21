@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import VideoCard from '../components/VideoCard.astro';
+import { pageSEO } from '../data/siteConfig';
+
+const videoIds = [
+  '0MURxzAH4lQ',
+  '_YivBtdcE8A',
+  'KMc6Muf0kZY',
+  'eE4A78ff-b4',
+  '2P_YlmmV0Hk',
+  'IZxz1NZhvmQ',
+];
+---
+
+<Base title={pageSEO.listen.title} description={pageSEO.listen.description}>
+  <div class="listen-page">
+    <span class="section-label">Listen</span>
+    <h1>Hear Brooke Play</h1>
+    <p>Check out some of my performances and song covers. Music is meant to be shared!</p>
+    <div class="listen-grid">
+      {videoIds.map(id => <VideoCard youtubeId={id} />)}
+    </div>
+  </div>
+</Base>

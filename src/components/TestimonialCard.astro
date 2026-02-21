@@ -1,0 +1,17 @@
+---
+interface Props {
+  stars: number;
+  text: string;
+  author: string;
+  source: string;
+}
+
+const { stars, text, author, source } = Astro.props;
+const starString = Array(stars).fill('★').join(' ');
+---
+
+<div class="testimonial-card">
+  <div class="testimonial-stars">{starString}</div>
+  <div class="testimonial-text">"{text}"</div>
+  <div class="testimonial-author">{author} <span>&middot; {source}</span></div>
+</div>

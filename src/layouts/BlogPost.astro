@@ -1,0 +1,72 @@
+---
+import Base from './Base.astro';
+import JsonLd from '../components/JsonLd.astro';
+import { siteConfig } from '../data/siteConfig';
+
+interface Props {
+  title: string;
+  description: string;
+  publishDate: Date;
+  updatedDate?: Date;
+  heroImage?: string;
+  tags?: string[];
+}
+
+const { title, description, publishDate, updatedDate, heroImage, tags = [] } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, siteConfig.url).href;
+const publishDateISO = publishDate.toISOString();
+const updatedDateISO = updatedDate?.toISOString();
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  author: {
+    '@type': 'Person',
+    name: 'Brooke',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: "Brooke's Lessons",
+  },
+  datePublished: publishDateISO,
+  ...(updatedDateISO && { dateModified: updatedDateISO }),
+  mainEntityOfPage: canonicalUrl,
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  ogType="article"
+  article={{
+    publishedTime: publishDateISO,
+    modifiedTime: updatedDateISO,
+    author: 'Brooke',
+    tags,
+  }}
+>
+  <Fragment slot="head">
+    <JsonLd data={articleJsonLd} />
+  </Fragment>
+
+  <article class="blog-post-page">
+    <span class="section-label">From the Blog</span>
+    <h1>{title}</h1>
+    <div class="blog-meta" style="margin-bottom: 32px;">
+      {publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+      {updatedDate && <span> (Updated {updatedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })})</span>}
+    </div>
+    <div class="prose">
+      <slot />
+    </div>
+    <div style="margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border-light);">
+      <p style="font-size: 16px; color: var(--text-body); margin-bottom: 16px;">
+        Want to learn more with one-on-one guidance?
+      </p>
+      <a href="/book" class="btn btn-primary">Book a Lesson &rarr;</a>
+    </div>
+  </article>
+</Base>

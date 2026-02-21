@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+import { pageSEO } from '../../data/siteConfig';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+---
+
+<Base title={pageSEO.blog.title} description={pageSEO.blog.description}>
+  <div class="blog-page">
+    <span class="section-label">From the Blog</span>
+    <h1>Blog — Guitar Tips & Song Tutorials</h1>
+
+    {posts.length === 0 ? (
+      <p style="color: var(--text-dim); font-size: 16px;">Blog posts coming soon! Check back for guitar tips, song tutorials, and music lesson advice.</p>
+    ) : (
+      posts.map(post => (
+        <a href={`/blog/${post.slug}`} class="blog-post-preview">
+          <div class="blog-meta">
+            {post.data.publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
+          </div>
+          <h2>{post.data.title}</h2>
+          <p>{post.data.description}</p>
+        </a>
+      ))
+    )}
+  </div>
+</Base>
