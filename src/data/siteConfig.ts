@@ -36,19 +36,9 @@ export const pageSEO = {
     description:
       "Digital gift certificates for private online music lessons. 1 month of guitar, voice, or ukulele lessons — only $130. Delivered via email within 48 hours.",
   },
-  policies: {
-    title: "Lesson Policies — Scheduling, Billing & Cancellations",
-    description:
-      "Brooke's Lessons studio policies including scheduling, monthly billing, cancellation policy, and what you need for online lessons.",
-  },
   listen: {
     title: "Listen — Hear Brooke Play Guitar & Sing",
     description:
       "Listen to performances and covers by Brooke. Guitar, voice, and original music from a teacher who's been performing for over 7 years.",
-  },
-  blog: {
-    title: "Blog — Guitar Tips, Song Tutorials & Music Lesson Advice",
-    description:
-      "Tips for beginner guitarists, Taylor Swift song tutorials, practice advice, and music lesson insights from an experienced online guitar teacher.",
   },
 };

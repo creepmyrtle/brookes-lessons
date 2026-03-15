@@ -6,7 +6,8 @@
       "Bash(tail:*)",
       "Bash(head:*)",
       "Bash(cd /c/Users/joeco/OneDrive/Desktop/brookes-website && npm ls tailwindcss 2>&1)",
-      "Bash(cd /c/Users/joeco/OneDrive/Desktop/brookes-website && npm run build 2>&1)"
+      "Bash(cd /c/Users/joeco/OneDrive/Desktop/brookes-website && npm run build 2>&1)",
+      "Bash(rmdir:*)"
     ]
   }
 }
